@@ -1,0 +1,118 @@
+Here are the two files you requested for the **Recipe Service**:
+
+---
+
+## ✅ `Procedure.txt` for Recipe Service
+
+````
+## 🛣️ Roadmap: Step-by-Step Recipe Service (Monolithic)
+
+### ✅ Phase 1: Setup Project Environment
+
+1. Initialize Node.js project
+   ```bash
+   npm init -y
+````
+
+2. Install dependencies:
+
+   ```bash
+   npm install express mongoose dotenv cors
+   ```
+
+   This installs:
+
+   * express – for creating API endpoints
+   * mongoose – to interact with MongoDB
+   * dotenv – for environment variables
+   * cors – to allow cross-origin requests
+
+3. Create `.env` file in the project root with:
+
+   ```
+   PORT=5001
+   MONGO_URI=mongodb://localhost:27017/recipeservice
+   ```
+
+4. Create server.js file
+
+5. Add dev script in `package.json`:
+
+   ```json
+   "scripts": {
+     "dev": "node server.js"
+   }
+   ```
+
+---
+
+### ✅ Phase 2: Setup Server and Database
+
+1. Initialize Express app in `server.js`
+2. Connect to MongoDB using Mongoose
+3. Use middleware:
+
+   * `express.json()`
+   * `cors()`
+
+---
+
+### ✅ Phase 3: Create Recipe Functionality
+
+1. Create **Recipe Model** (`models/Recipe.js`)
+
+   * title (String)
+   * ingredients (Array of Strings)
+   * instructions (String)
+   * tags (Array of Strings)
+   * author (ObjectId reference to User)
+
+2. Create **Recipe Routes** (`routes/recipes.js`)
+
+3. Create **Recipe Controller** (`controllers/recipeController.js`)
+
+   * `createRecipe()`
+   * `getAllRecipes()`
+
+---
+
+### ✅ Phase 4: Middleware (Optional for now)
+
+1. Create `authMiddleware.js` (if integrating JWT from Auth Service later)
+
+---
+
+### ✅ Phase 5: Test with Postman or frontend
+
+* Test:
+
+  * POST `/recipes/` – Create recipe
+  * GET `/recipes/` – Get all recipes
+
+---
+
+## 📊 Text-Based Diagram: Recipe Service Flow
+
+```
+             +--------------+       POST /recipes             +---------------+
+Frontend --> |  New Recipe  | ------------------------------> | Recipe Route   |
+             +--------------+                                +---------------+
+                                                            | Validate & Save|
+                                                            +---------------+
+                                                                   |
+                                                                   v
+                                                            +------------+
+                                                            | MongoDB    |
+                                                            | Recipes DB |
+                                                            +------------+
+
+
+             +-------------+      GET /recipes               +---------------+
+Frontend --> | All Recipes | ------------------------------> | Recipe Route   |
+             +-------------+                                +---------------+
+                                                            | Fetch All Docs|
+                                                            +---------------+
+
+```
+
+---

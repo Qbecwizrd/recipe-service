@@ -1,0 +1,32 @@
+recipe-service/
+│
+├── models/
+│   └── Recipe.js
+│       → Defines the Mongoose schema for a recipe, specifying the structure and types of data to be stored in the database.
+│
+├── routes/
+│   └── recipeRoutes.js
+│       → Contains the API route definitions. It sets up the endpoints for handling recipe-related HTTP requests.
+│
+├── controllers/
+│   └── recipeController.js
+│       → Implements the logic for handling recipe operations, such as fetching recipes from the database or saving new ones.
+│
+├── config/
+│   └── db.js
+│       → Handles the connection to MongoDB using asynchronous calls. It sets up and exports the database connection logic.
+│
+├── middleware/
+│   └── authMiddleware.js
+│       → Responsible for checking if a valid JWT (JSON Web Token) is present in the request, thereby verifying user authentication.
+│
+├── .env
+│   → Contains environment variables such as database URLs, secret keys, etc.
+│
+├── server.js
+│   → The main entry point of the application. It sets up the Express app, connects to the database, and starts the server.
+│
+└── package.json
+    → Lists the project's dependencies and scripts. It also contains metadata about the project.
+
+
